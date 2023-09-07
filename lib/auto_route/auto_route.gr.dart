@@ -9,74 +9,74 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i4;
-import 'package:ecommerce/screens/first_screen.dart' as _i1;
-import 'package:ecommerce/screens/second_screen.dart' as _i2;
-import 'package:ecommerce/screens/third_screen.dart' as _i3;
+import 'package:ecommerce/screens/introduction/introduction_screen.dart' as _i1;
+import 'package:ecommerce/screens/login/login_screen.dart' as _i2;
+import 'package:ecommerce/screens/registration/registration_screen.dart' as _i3;
 
 abstract class $AppRouter extends _i4.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
   final Map<String, _i4.PageFactory> pagesMap = {
-    FirstRoute.name: (routeData) {
+    IntroductionRoute.name: (routeData) {
       return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.FirstScreen(),
+        child: const _i1.IntroductionScreen(),
       );
     },
-    SecondRoute.name: (routeData) {
+    LoginRoute.name: (routeData) {
       return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.SecondScreen(),
+        child: const _i2.LoginScreen(),
       );
     },
-    ThirdRoute.name: (routeData) {
+    RegistrationRoute.name: (routeData) {
       return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.ThirdScreen(),
+        child: const _i3.RegistrationScreen(),
       );
     },
   };
 }
 
 /// generated route for
-/// [_i1.FirstScreen]
-class FirstRoute extends _i4.PageRouteInfo<void> {
-  const FirstRoute({List<_i4.PageRouteInfo>? children})
+/// [_i1.IntroductionScreen]
+class IntroductionRoute extends _i4.PageRouteInfo<void> {
+  const IntroductionRoute({List<_i4.PageRouteInfo>? children})
       : super(
-          FirstRoute.name,
+          IntroductionRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'FirstRoute';
+  static const String name = 'IntroductionRoute';
 
   static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i2.SecondScreen]
-class SecondRoute extends _i4.PageRouteInfo<void> {
-  const SecondRoute({List<_i4.PageRouteInfo>? children})
+/// [_i2.LoginScreen]
+class LoginRoute extends _i4.PageRouteInfo<void> {
+  const LoginRoute({List<_i4.PageRouteInfo>? children})
       : super(
-          SecondRoute.name,
+          LoginRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'SecondRoute';
+  static const String name = 'LoginRoute';
 
   static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i3.ThirdScreen]
-class ThirdRoute extends _i4.PageRouteInfo<void> {
-  const ThirdRoute({List<_i4.PageRouteInfo>? children})
+/// [_i3.RegistrationScreen]
+class RegistrationRoute extends _i4.PageRouteInfo<void> {
+  const RegistrationRoute({List<_i4.PageRouteInfo>? children})
       : super(
-          ThirdRoute.name,
+          RegistrationRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'ThirdRoute';
+  static const String name = 'RegistrationRoute';
 
   static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
 }
