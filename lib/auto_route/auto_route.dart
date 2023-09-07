@@ -9,7 +9,7 @@ class AppRouter extends $AppRouter {
         AutoRoute(
           initial: true,
           path: '/introduction_screen',
-          page: IntroductionRoute.page,
+          page: IntroRoute.page,
         ),
         AutoRoute(
           path: '/login_screen',

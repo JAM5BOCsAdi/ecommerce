@@ -9,7 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i4;
-import 'package:ecommerce/screens/introduction/introduction_screen.dart' as _i1;
+import 'package:ecommerce/screens/introduction/intro_screen.dart' as _i1;
 import 'package:ecommerce/screens/login/login_screen.dart' as _i2;
 import 'package:ecommerce/screens/registration/registration_screen.dart' as _i3;
 
@@ -18,10 +18,10 @@ abstract class $AppRouter extends _i4.RootStackRouter {
 
   @override
   final Map<String, _i4.PageFactory> pagesMap = {
-    IntroductionRoute.name: (routeData) {
+    IntroRoute.name: (routeData) {
       return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.IntroductionScreen(),
+        child: const _i1.IntroScreen(),
       );
     },
     LoginRoute.name: (routeData) {
@@ -40,15 +40,15 @@ abstract class $AppRouter extends _i4.RootStackRouter {
 }
 
 /// generated route for
-/// [_i1.IntroductionScreen]
-class IntroductionRoute extends _i4.PageRouteInfo<void> {
-  const IntroductionRoute({List<_i4.PageRouteInfo>? children})
+/// [_i1.IntroScreen]
+class IntroRoute extends _i4.PageRouteInfo<void> {
+  const IntroRoute({List<_i4.PageRouteInfo>? children})
       : super(
-          IntroductionRoute.name,
+          IntroRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'IntroductionRoute';
+  static const String name = 'IntroRoute';
 
   static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
 }
