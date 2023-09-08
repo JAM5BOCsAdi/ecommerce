@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -10,7 +11,7 @@ class RegistrationScreen extends StatelessWidget {
     return const SafeArea(
       child: Scaffold(
         body: Center(
-          child: Text('Registration Screen'),
+          child: AutoSizeText('Registration Screen'),
         ),
       ),
     );
