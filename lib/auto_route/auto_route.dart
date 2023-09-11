@@ -8,11 +8,6 @@ class AppRouter extends $AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(
           initial: true,
-          path: '/connectivity_screen',
-          page: ConnectivityRoute.page,
-        ),
-        AutoRoute(
-          // initial: true,
           path: '/introduction_screen',
           page: IntroRoute.page,
         ),
