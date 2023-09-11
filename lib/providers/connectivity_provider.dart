@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 
 class ConnectivityProvider extends ChangeNotifier {
   final Connectivity _connectivity = Connectivity();
+  // ignore: unused_field
   late StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
   ConnectivityResult _connectivityResult = ConnectivityResult.none;
@@ -22,7 +23,9 @@ class ConnectivityProvider extends ChangeNotifier {
       _connectivityResult = await _connectivity.checkConnectivity();
       notifyListeners();
     } on PlatformException catch (e) {
-      print("Error Occurred: ${e.toString()} ");
+      if (kDebugMode) {
+        print("Error Occurred: ${e.toString()} ");
+      }
     }
   }
 
