@@ -1,4 +1,5 @@
 import 'package:ecommerce/auto_route/auto_route.dart';
+import 'package:ecommerce/providers/connectivity_provider.dart';
 import 'package:ecommerce/providers/introduction_provider.dart';
 import 'package:ecommerce/utils/screen_util.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
@@ -15,6 +16,7 @@ class Ecommerce extends StatelessWidget {
     final appRouter = AppRouter();
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (_) => ConnectivityProvider()),
         ChangeNotifierProvider(create: (_) => IntroductionProvider()),
       ],
       child: MaterialApp.router(

@@ -11,10 +11,10 @@ class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Center(child: AutoSizeText('First Screen')),
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      //   title: const Center(child: AutoSizeText('First Screen')),
+      // ),
       body: SafeArea(
         child: IntroductionScreen(
           initialPage: 0,
@@ -64,4 +64,8 @@ class IntroScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+class ConnectivityScreen {
+  const ConnectivityScreen();
 }
