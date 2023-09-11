@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:ecommerce/dialogs/no_connectivity_dialog.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 class ConnectivityProvider extends ChangeNotifier {
   String status = 'waiting...';
@@ -22,7 +24,7 @@ class ConnectivityProvider extends ChangeNotifier {
     }
   }
 
-  void checkRealtimeConnection() {
+  void checkRealtimeConnection(BuildContext context) {
     _streamSubscription = _connectivity.onConnectivityChanged.listen((event) {
       switch (event) {
         case ConnectivityResult.mobile:
@@ -40,6 +42,7 @@ class ConnectivityProvider extends ChangeNotifier {
         default:
           {
             status = 'Offline';
+            showNoConnectivityDialog(context);
             notifyListeners();
           }
           break;
