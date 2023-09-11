@@ -3,6 +3,7 @@ import 'package:ecommerce/auto_route/auto_route.dart';
 import 'package:ecommerce/providers/connectivity_provider.dart';
 import 'package:ecommerce/providers/introduction_provider.dart';
 import 'package:ecommerce/screens/error/error_screen.dart';
+import 'package:ecommerce/screens/introduction/intro_screen.dart';
 import 'package:ecommerce/utils/screen_util.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +19,14 @@ class Ecommerce extends StatelessWidget {
     final appRouter = AppRouter();
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ConnectivityProvider()),
-        ChangeNotifierProvider(create: (_) => IntroductionProvider()),
+        ChangeNotifierProvider(
+          create: (_) => ConnectivityProvider(),
+          child: const Ecommerce(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => IntroductionProvider(),
+          child: const IntroScreen(),
+        ),
       ],
       child: Consumer<ConnectivityProvider>(
         builder: (_, connectivityProvider, child) {
