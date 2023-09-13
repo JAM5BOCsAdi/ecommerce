@@ -12,7 +12,7 @@ class IntroProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  checkFresher() async {
+  Future<void> checkFresher() async {
     isLoading = true;
     notifyListeners();
     prefs = await SharedPreferences.getInstance();
