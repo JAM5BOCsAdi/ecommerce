@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:ecommerce/providers/intro_provider.dart';
+import 'package:ecommerce/screens/login/login_screen.dart';
 import 'package:ecommerce/utils/screen_util.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -40,7 +41,7 @@ class IntroScreen extends StatelessWidget {
       builder: (context, introProvider, child) {
         if (introProvider.isLoading ?? false) {
           return const Center(child: CircularProgressIndicator());
-        } else {
+        } else if (introProvider.isFresher ?? true) {
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Theme.of(context).colorScheme.onPrimary,
@@ -57,6 +58,7 @@ class IntroScreen extends StatelessWidget {
                 },
                 done: const AutoSizeText('Done'),
                 onDone: () {
+                  introProvider.prefs.setBool('isFresher', false);
                   context.router.pushNamed('/login_screen');
                 },
                 showSkipButton: true,
@@ -94,6 +96,9 @@ class IntroScreen extends StatelessWidget {
               ),
             ),
           );
+        } else {
+          introProvider.prefs.setBool('isFresher', false);
+          return const LoginScreen();
         }
       },
     );
