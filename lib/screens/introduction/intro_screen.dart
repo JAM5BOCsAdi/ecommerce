@@ -10,62 +10,79 @@ class IntroScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _introKey = GlobalKey<IntroductionScreenState>();
+
+    Image _buildFullScreenImage(String path) {
+      return Image.asset(
+        path,
+        fit: BoxFit.cover,
+        alignment: Alignment.center,
+      );
+    }
+
+    PageDecoration _pageDecoration() {
+      return PageDecoration(
+        imageFlex: 2,
+        bodyFlex: 1,
+        imageAlignment: Alignment.center,
+        bodyAlignment: Alignment.topCenter,
+        imagePadding: EdgeInsets.only(
+          top: screenHeight * 0.05,
+          left: screenWidth * 0.025,
+          right: screenWidth * 0.025,
+        ),
+      );
+    }
+
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      //   title: const Center(child: AutoSizeText('First Screen')),
-      // ),
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.onPrimary,
+      ),
       body: SafeArea(
         child: IntroductionScreen(
+          key: _introKey,
           initialPage: 0,
           next: const Icon(Icons.arrow_forward),
-          done: const AutoSizeText('Done'),
-          onDone: () {},
-          showSkipButton: true,
+          isProgress: true,
           skip: const AutoSizeText('Skip'),
           onSkip: () {
-            // print('Height: $screenHeight\nWidth: $screenWidth');
+            _introKey.currentState?.skipToEnd();
           },
-          isProgress: true,
+          done: const AutoSizeText('Done'),
+          onDone: () {
+            context.router.pushNamed('/login_screen');
+          },
+          showSkipButton: true,
           dotsDecorator: DotsDecorator(
-            // width: 10.0 px | height: 10.0 px
             size: Size(screenWidth * 0.025, screenHeight * 0.015),
-            // width: 22.0 px | height: 10.0 px
             activeSize: Size(screenWidth * 0.055, screenHeight * 0.015),
-            activeShape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(25.0)),
+            activeShape: RoundedRectangleBorder(
+              borderRadius:
+                  BorderRadius.all(Radius.circular(screenWidth * 0.025)),
             ),
           ),
-          // dotsContainerDecorator: const ShapeDecoration(
-          //   color: Colors.amber,
-          //   shape: RoundedRectangleBorder(
-          //     borderRadius: BorderRadius.all(Radius.circular(8.0)),
-          //   ),
-          // ),
-          // key: _introKey,
-          // showBackButton: false,
-          // back: const Icon(Icons.arrow_back),
-          // onChange: (index) {},
           pages: [
             PageViewModel(
               title: 'First',
               body: 'First Body',
+              image: _buildFullScreenImage('assets/images/intro_img1.png'),
+              decoration: _pageDecoration(),
             ),
             PageViewModel(
               title: 'Second',
               body: 'Second Body',
+              image: _buildFullScreenImage('assets/images/intro_img2.png'),
+              decoration: _pageDecoration(),
             ),
             PageViewModel(
               title: 'Third',
               body: 'Third Body',
+              image: _buildFullScreenImage('assets/images/intro_img3.png'),
+              decoration: _pageDecoration(),
             ),
           ],
         ),
       ),
     );
   }
-}
-
-class ConnectivityScreen {
-  const ConnectivityScreen();
 }
