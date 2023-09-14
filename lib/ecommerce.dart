@@ -1,5 +1,6 @@
 import 'package:ecommerce/auto_route/auto_route.dart';
 import 'package:ecommerce/providers/intro_provider.dart';
+import 'package:ecommerce/providers/loading_provider.dart';
 import 'package:ecommerce/utils/screen_util.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,9 @@ class Ecommerce extends StatelessWidget {
     final appRouter = AppRouter();
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(
+          create: (_) => LoadingProvider(),
+        ),
         ChangeNotifierProvider(
           create: (_) => IntroProvider(),
         ),
