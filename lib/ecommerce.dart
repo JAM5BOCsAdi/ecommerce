@@ -15,10 +15,6 @@ class Ecommerce extends StatelessWidget {
     final appRouter = AppRouter();
     return MultiProvider(
       providers: [
-        // ChangeNotifierProvider(
-        //   create: (_) => ConnectivityProvider(),
-        //   child: const Ecommerce(),
-        // ),
         ChangeNotifierProvider(
           create: (_) => IntroProvider(),
         ),
