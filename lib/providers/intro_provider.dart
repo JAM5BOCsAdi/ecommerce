@@ -3,7 +3,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class IntroProvider extends ChangeNotifier {
   bool? isFresher;
-  bool? isLoading;
 
   late final SharedPreferences prefs;
 
@@ -13,8 +12,6 @@ class IntroProvider extends ChangeNotifier {
   }
 
   Future<void> checkFresher() async {
-    isLoading = true;
-    notifyListeners();
     prefs = await SharedPreferences.getInstance();
     if (prefs.getBool('isFresher') ?? true) {
       isFresher = true;
@@ -25,7 +22,5 @@ class IntroProvider extends ChangeNotifier {
       notifyListeners();
       print(isFresher);
     }
-    isLoading = false;
-    notifyListeners();
   }
 }
