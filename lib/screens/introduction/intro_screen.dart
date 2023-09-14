@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/providers/intro_provider.dart';
-import 'package:ecommerce/screens/introduction/intro_widget.dart';
+import 'package:ecommerce/widgets/intro_widget.dart';
 import 'package:ecommerce/screens/loading/loading_screen.dart';
 import 'package:ecommerce/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
