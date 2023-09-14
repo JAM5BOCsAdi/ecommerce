@@ -45,4 +45,5 @@ app.*.map.json
 
 
 # Ignore
-lib/ignore/ignore_SHA_keys.txt
+lib/ignore/*
+lib/firebase_options.dart
