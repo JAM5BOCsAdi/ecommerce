@@ -17,11 +17,10 @@ class IntroScreen extends StatelessWidget {
     final _introKey = GlobalKey<IntroductionScreenState>();
     final loadingProvider = Provider.of<LoadingProvider>(context);
 
-    loadingProvider.initLoading();
-
     return Consumer<IntroProvider>(
       builder: (context, introProvider, child) {
         if (loadingProvider.showLoading) {
+          loadingProvider.initLoading();
           return const LoadingScreen();
         } else if (introProvider.isFresher ?? true) {
           return IntroWidget(
