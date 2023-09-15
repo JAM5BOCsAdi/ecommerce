@@ -21,4 +21,10 @@ class IntroProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
+
+  Future<void> setFresher(bool fresher) async {
+    isFresher = fresher;
+    await prefs.setBool('isFresher', fresher);
+    notifyListeners();
+  }
 }
