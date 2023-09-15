@@ -14,17 +14,10 @@ class IntroProvider extends ChangeNotifier {
     prefs = await SharedPreferences.getInstance();
     if (prefs.getBool('isFresher') ?? true) {
       isFresher = true;
-      print(isFresher);
     } else {
       isFresher = false;
-      print(isFresher);
+      prefs.setBool('isFresher', false);
     }
-    notifyListeners();
-  }
-
-  Future<void> setFresher(bool fresher) async {
-    isFresher = fresher;
-    await prefs.setBool('isFresher', fresher);
     notifyListeners();
   }
 }

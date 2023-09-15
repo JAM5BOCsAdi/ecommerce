@@ -69,20 +69,20 @@ class IntroWidget extends StatelessWidget {
           ),
           pages: [
             PageViewModel(
-              title: 'First',
-              body: 'First Body',
+              title: 'Online Shopping?',
+              body: 'Make it easy for everyone',
               image: _buildFullScreenImage('assets/images/intro_img1.png'),
               decoration: _pageDecoration(),
             ),
             PageViewModel(
-              title: 'Second',
-              body: 'Second Body',
+              title: 'Sales?',
+              body: 'Lots of price falls',
               image: _buildFullScreenImage('assets/images/intro_img2.png'),
               decoration: _pageDecoration(),
             ),
             PageViewModel(
-              title: 'Third',
-              body: 'Third Body',
+              title: 'New Arrivals?',
+              body: 'Full of new products',
               image: _buildFullScreenImage('assets/images/intro_img3.png'),
               decoration: _pageDecoration(),
             ),

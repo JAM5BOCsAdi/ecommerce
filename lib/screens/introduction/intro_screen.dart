@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/providers/intro_provider.dart';
+import 'package:ecommerce/screens/loading/loading_screen.dart';
 import 'package:ecommerce/widgets/intro_widget.dart';
 import 'package:ecommerce/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -16,15 +17,23 @@ class IntroScreen extends StatelessWidget {
 
     return Consumer<IntroProvider>(
       builder: (context, introProvider, child) {
-        if (introProvider.isFresher ?? true) {
-          return IntroWidget(
-            introKey: _introKey,
-            introProvider: introProvider,
-          );
-        } else {
-          introProvider.setFresher(true);
-          return const LoginScreen();
-        }
+        return FutureBuilder(
+          future: Future.delayed(const Duration(seconds: 3)),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const LoadingScreen();
+            } else {
+              if (introProvider.isFresher ?? true) {
+                return IntroWidget(
+                  introKey: _introKey,
+                  introProvider: introProvider,
+                );
+              } else {
+                return const LoginScreen();
+              }
+            }
+          },
+        );
       },
     );
   }
