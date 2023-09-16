@@ -12,8 +12,8 @@ class AppRouter extends $AppRouter {
           page: IntroRoute.page,
         ),
         AutoRoute(
-          path: '/login_screen',
-          page: LoginRoute.page,
+          path: '/sign_in_screen',
+          page: SignInRoute.page,
         ),
         AutoRoute(
           path: '/registration_screen',
