@@ -5,15 +5,15 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-//TODO: Not the FutureBuilder the problem in IntroScreen when it's loading continuously.
 class Ecommerce extends StatelessWidget {
-  const Ecommerce({super.key});
+  Ecommerce({super.key});
+
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
     initScreenUtils(context);
 
-    final appRouter = AppRouter();
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -32,7 +32,7 @@ class Ecommerce extends StatelessWidget {
           scheme: FlexScheme.purpleM3,
         ),
         themeMode: ThemeMode.system,
-        routerConfig: appRouter.config(),
+        routerConfig: _appRouter.config(),
       ),
     );
   }

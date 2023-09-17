@@ -56,7 +56,7 @@ class IntroWidget extends StatelessWidget {
           done: const AutoSizeText('Done'),
           onDone: () {
             introProvider.prefs.setBool('isFresher', false);
-            context.router.pushNamed('/login_screen');
+            context.router.pushNamed('/sign_in_screen');
           },
           showSkipButton: true,
           dotsDecorator: DotsDecorator(

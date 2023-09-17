@@ -3,15 +3,15 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class RegistrationScreen extends StatelessWidget {
-  const RegistrationScreen({super.key});
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Scaffold(
         body: Center(
-          child: AutoSizeText('Registration Screen'),
+          child: AutoSizeText('Sign In Screen'),
         ),
       ),
     );

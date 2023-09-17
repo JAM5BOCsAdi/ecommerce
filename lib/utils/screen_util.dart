@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart' show BuildContext, MediaQuery;
 
-// class ScreenUtil {
-// static double getScreenWidth({required BuildContext context}) =>
-//     MediaQuery.of(context).size.width;
-
-// static double getScreenHeight({required BuildContext context}) =>
-//     MediaQuery.of(context).size.height;
-
 double? _screenWidth;
 double? _screenHeight;
 

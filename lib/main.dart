@@ -11,5 +11,5 @@ void main() async {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
-  runApp(const Ecommerce());
+  runApp(Ecommerce());
 }
