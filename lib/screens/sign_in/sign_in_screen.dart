@@ -21,7 +21,6 @@ class SignInScreen extends HookWidget {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        resizeToAvoidBottomInset: true,
         body: Padding(
           padding: EdgeInsets.only(
             top: screenHeight * 0.075,
@@ -96,10 +95,6 @@ class SignInScreen extends HookWidget {
               ),
             ),
           ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => scrollProvider.scrollToBottom(),
-          child: const Icon(Icons.arrow_downward),
         ),
       ),
     );

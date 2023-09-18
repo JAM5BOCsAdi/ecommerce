@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
-
   final String label;
   final bool? obscure;
   final String? obscuringCharacter;
@@ -26,7 +25,7 @@ class CustomTextField extends StatelessWidget {
           left: screenWidth * 0.025,
           right: screenWidth * 0.025,
           bottom: screenHeight * 0.025),
-      child: TextField(
+      child: TextFormField(
         controller: controller,
         decoration: InputDecoration(
           border: OutlineInputBorder(
@@ -46,6 +45,7 @@ class CustomTextField extends StatelessWidget {
         keyboardType: keyboardType ?? TextInputType.text,
         obscureText: obscure ?? false,
         obscuringCharacter: obscure == true ? obscuringCharacter! : ' ',
+        onChanged: (value) {},
       ),
     );
   }
