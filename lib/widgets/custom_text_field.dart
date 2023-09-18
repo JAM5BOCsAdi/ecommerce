@@ -1,8 +1,10 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:ecommerce/utils/screen_util.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
-  final String hintText;
+  final String label;
   final bool? obscure;
   final String? obscuringCharacter;
   final TextInputType? keyboardType;
@@ -10,7 +12,7 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     Key? key,
     required this.controller,
-    required this.hintText,
+    required this.label,
     this.obscure,
     this.obscuringCharacter,
     this.keyboardType,
@@ -18,30 +20,37 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color: Colors.transparent, width: 0),
+    return Padding(
+      padding: EdgeInsets.only(
+          left: screenWidth * 0.025,
+          right: screenWidth * 0.025,
+          bottom: screenHeight * 0.025),
+      child: TextField(
+        controller: controller,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: const BorderSide(color: Colors.transparent, width: 0),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: const BorderSide(color: Colors.transparent, width: 0),
+          ),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          filled: true,
+          fillColor: Theme.of(context).colorScheme.inversePrimary,
+          // hintText: hintText,
+          // hintStyle: const TextStyle(
+          //   fontSize: 14,
+          //   fontWeight: FontWeight.w400,
+          // ),
+          label: AutoSizeText(label),
         ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color: Colors.transparent, width: 0),
-        ),
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        filled: true,
-        fillColor: Theme.of(context).colorScheme.inversePrimary,
-        hintText: hintText,
-        hintStyle: const TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
-        ),
+        keyboardType: keyboardType ?? TextInputType.text,
+        obscureText: obscure ?? false,
+        obscuringCharacter: obscure == true ? obscuringCharacter! : ' ',
       ),
-      keyboardType: keyboardType ?? TextInputType.text,
-      obscureText: obscure ?? false,
-      obscuringCharacter: obscure == true ? obscuringCharacter! : ' ',
     );
   }
 }

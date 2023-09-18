@@ -45,6 +45,8 @@ dependencies:
   firebase_auth: ^4.9.0
   flutter_hooks: ^0.20.1
   get: ^4.6.6
+  gap: ^3.0.1
+  flutter_svg: ^2.0.7
 
 dev_dependencies:
   flutter_test:
@@ -74,6 +76,7 @@ flutter:
     - assets/images/intro_img1.png
     - assets/images/intro_img2.png
     - assets/images/intro_img3.png
+    - assets/images/sign_in.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

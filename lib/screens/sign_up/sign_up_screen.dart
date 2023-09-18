@@ -29,12 +29,12 @@ class SignUpScreen extends HookWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CustomTextField(
-                  hintText: 'Enter email here...',
+                  label: 'Email',
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
                 ),
                 CustomTextField(
-                  hintText: 'Enter password here...',
+                  label: 'Password',
                   controller: passwordController,
                   obscure: true,
                   obscuringCharacter: '⚫',

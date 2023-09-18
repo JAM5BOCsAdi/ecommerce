@@ -1,9 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/providers/intro_provider.dart';
 import 'package:ecommerce/screens/loading/loading_screen.dart';
-import 'package:ecommerce/screens/sign_up/sign_up_screen.dart';
+import 'package:ecommerce/screens/sign_in/sign_in_screen.dart';
 import 'package:ecommerce/widgets/intro_widget.dart';
-// import 'package:ecommerce/screens/sign_in/sing_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:provider/provider.dart';
@@ -31,7 +30,7 @@ class IntroScreen extends StatelessWidget {
             );
           } else {
             //TODO: Later change this to SignInScreen()
-            return const SignUpScreen();
+            return const SignInScreen();
           }
         }
       },
