@@ -1,6 +1,6 @@
 import 'package:ecommerce/auto_route/auto_route.dart';
 import 'package:ecommerce/providers/intro_provider.dart';
-import 'package:ecommerce/providers/scroll_provider.dart';
+import 'package:ecommerce/services/auth_service.dart';
 import 'package:ecommerce/utils/screen_util.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
@@ -17,12 +17,15 @@ class Ecommerce extends StatelessWidget {
 
     return MultiProvider(
       providers: [
+        Provider<AuthService>(
+          create: (_) => AuthService(),
+        ),
         ChangeNotifierProvider(
           create: (_) => IntroProvider(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => ScrollProvider(),
-        ),
+        // ChangeNotifierProvider(
+        //   create: (_) => ScrollProvider(),
+        // ),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

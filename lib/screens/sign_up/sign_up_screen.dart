@@ -1,19 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:ecommerce/utils/screen_util.dart';
-import 'package:ecommerce/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_hooks/flutter_hooks.dart';
 
 @RoutePage()
-class SignUpScreen extends HookWidget {
+class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final emailController = useTextEditingController();
-    final passwordController = useTextEditingController();
+    // final emailController = useTextEditingController();
+    // final passwordController = useTextEditingController();
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
@@ -35,24 +33,6 @@ class SignUpScreen extends HookWidget {
                 scrollDirection: Axis.vertical,
                 child: Column(
                   children: [
-                    SvgPicture.asset(
-                      'assets/images/sign_up.svg',
-                      height: screenHeight * 0.5,
-                      width: screenWidth * 0.5,
-                    ),
-                    CustomTextField(
-                      label: 'Email',
-                      controller: emailController,
-                      // focusNode: emailFocusNode,
-                      keyboardType: TextInputType.emailAddress,
-                    ),
-                    CustomTextField(
-                      label: 'Password',
-                      controller: passwordController,
-                      // focusNode: passwordFocusNode,
-                      obscure: true,
-                      obscuringCharacter: '*',
-                    ),
                     Padding(
                       padding: EdgeInsets.only(
                         left: screenWidth * 0.025,
