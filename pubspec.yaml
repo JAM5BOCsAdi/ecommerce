@@ -77,6 +77,7 @@ flutter:
     - assets/images/intro_img2.png
     - assets/images/intro_img3.png
     - assets/images/sign_in.svg
+    - assets/images/sign_up.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

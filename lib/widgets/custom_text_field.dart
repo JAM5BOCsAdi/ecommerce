@@ -40,11 +40,6 @@ class CustomTextField extends StatelessWidget {
               const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           filled: true,
           fillColor: Theme.of(context).colorScheme.inversePrimary,
-          // hintText: hintText,
-          // hintStyle: const TextStyle(
-          //   fontSize: 14,
-          //   fontWeight: FontWeight.w400,
-          // ),
           label: AutoSizeText(label),
         ),
         keyboardType: keyboardType ?? TextInputType.text,

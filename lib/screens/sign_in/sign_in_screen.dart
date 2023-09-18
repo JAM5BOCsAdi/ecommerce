@@ -14,66 +14,77 @@ class SignInScreen extends HookWidget {
   Widget build(BuildContext context) {
     final emailController = useTextEditingController();
     final passwordController = useTextEditingController();
-    final scrollController = ScrollController();
 
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.onPrimary,
-      ),
-      body: Padding(
-        padding: EdgeInsets.only(
-          left: screenWidth * 0.025,
-          right: screenWidth * 0.025,
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.onPrimary,
         ),
-        child: Container(
-          color: Theme.of(context).colorScheme.onPrimary,
-          height: screenHeight,
-          width: screenWidth,
-          child: SingleChildScrollView(
-            controller: scrollController,
-            scrollDirection: Axis.vertical,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SvgPicture.asset(
-                  'assets/images/sign_in.svg',
-                  height: screenHeight * 0.5,
-                  width: screenWidth * 0.5,
-                ),
-                CustomTextField(
-                  label: 'Email',
-                  controller: emailController,
-                  keyboardType: TextInputType.emailAddress,
-                ),
-                CustomTextField(
-                  label: 'Password',
-                  controller: passwordController,
-                  obscure: true,
-                  obscuringCharacter: '⚫',
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: screenWidth * 0.025,
-                    right: screenWidth * 0.025,
-                  ),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: Size(screenWidth, screenHeight * 0.05),
+        body: Padding(
+          padding: EdgeInsets.only(
+            left: screenWidth * 0.025,
+            right: screenWidth * 0.025,
+          ),
+          child: Container(
+            color: Theme.of(context).colorScheme.onPrimary,
+            height: screenHeight,
+            width: screenWidth,
+            child: Scrollbar(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  children: [
+                    SvgPicture.asset(
+                      'assets/images/sign_in.svg',
+                      height: screenHeight * 0.5,
+                      width: screenWidth * 0.5,
                     ),
-                    child: const AutoSizeText('Sign In'),
-                  ),
+                    CustomTextField(
+                      label: 'Email',
+                      controller: emailController,
+                      keyboardType: TextInputType.emailAddress,
+                    ),
+                    CustomTextField(
+                      label: 'Password',
+                      controller: passwordController,
+                      obscure: true,
+                      obscuringCharacter: '*',
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: screenWidth * 0.025,
+                        right: screenWidth * 0.025,
+                      ),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: Size(screenWidth, screenHeight * 0.05),
+                        ),
+                        child: const AutoSizeText('Sign In'),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const AutoSizeText('Don\'t have an account yet?'),
+                        TextButton(
+                          onPressed: () {
+                            context.router.replaceNamed('/sign_up_screen');
+                          },
+                          child: const AutoSizeText(
+                            'Register here',
+                            style: TextStyle(
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                TextButton(
-                  onPressed: () {
-                    context.router.pushNamed('/sign_up_screen');
-                  },
-                  child: const AutoSizeText(
-                    'Don\'t have an account yet? Register here',
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ),
