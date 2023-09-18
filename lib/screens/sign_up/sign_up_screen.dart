@@ -18,11 +18,9 @@ class SignUpScreen extends HookWidget {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.onPrimary,
-        ),
         body: Padding(
           padding: EdgeInsets.only(
+            top: screenHeight * 0.075,
             left: screenWidth * 0.025,
             right: screenWidth * 0.025,
           ),
@@ -63,9 +61,15 @@ class SignUpScreen extends HookWidget {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          minimumSize: Size(screenWidth, screenHeight * 0.05),
+                          minimumSize: Size(
+                            screenWidth,
+                            screenHeight * 0.075,
+                          ),
                         ),
-                        child: const AutoSizeText('Sign Up'),
+                        child: const AutoSizeText(
+                          'Sign Up',
+                          minFontSize: 20,
+                        ),
                       ),
                     ),
                     Row(
