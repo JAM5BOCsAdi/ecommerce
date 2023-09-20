@@ -4,7 +4,6 @@ import 'package:ecommerce/providers/intro_provider.dart';
 import 'package:ecommerce/screens/home/home_screen.dart';
 import 'package:ecommerce/screens/introduction/intro_screen.dart';
 import 'package:ecommerce/screens/loading/loading_screen.dart';
-// import 'package:ecommerce/screens/loading/loading_screen.dart';
 import 'package:ecommerce/screens/sign_in/sign_in_screen.dart';
 import 'package:ecommerce/services/auth_service.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +23,6 @@ class Wrapper extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting ||
             snapshot.connectionState == ConnectionState.none) {
-          // LoadingScreen.instance().show(context: context, text: 'Loading...');
           return const LoadingScreen();
         } else {
           if (_introProvider.isFresher ?? false) {

@@ -1,4 +1,3 @@
-import 'package:ecommerce/utils/screen_util.dart';
 import 'package:flutter/material.dart';
 
 class LoadingScreen extends StatelessWidget {
@@ -6,7 +5,7 @@ class LoadingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _screen = ScreenUtil.instance();
+    final _screen = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(

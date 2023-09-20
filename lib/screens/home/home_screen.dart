@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 // import 'package:ecommerce/screens/loading/loading_screen.dart';
 import 'package:ecommerce/services/auth_service.dart';
-import 'package:ecommerce/utils/screen_util.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,7 +10,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _screen = ScreenUtil.instance();
+    final _screen = MediaQuery.of(context).size;
     final _authService = context.read<AuthService>();
 
     return Scaffold(
