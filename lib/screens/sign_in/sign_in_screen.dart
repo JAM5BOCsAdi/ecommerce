@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+// import 'package:ecommerce/screens/loading/loading_screen.dart';
 import 'package:ecommerce/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -16,7 +17,7 @@ class SignInScreen extends HookWidget {
     final _screen = ScreenUtil.instance();
     final _emailController = useTextEditingController();
     final _passwordController = useTextEditingController();
-    final _authService = Provider.of<AuthService>(context, listen: false);
+    final _authService = context.read<AuthService>();
     // final scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
 
     return GestureDetector(
@@ -53,7 +54,7 @@ class SignInScreen extends HookWidget {
                               bottom: _screen.height * 0.025,
                             ),
                             child: TextFormField(
-                              //controller: controller,
+                              controller: _emailController,
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(8),
@@ -73,14 +74,50 @@ class SignInScreen extends HookWidget {
                                     .inversePrimary,
                                 label: AutoSizeText('Email'),
                               ),
+                              keyboardType: TextInputType.emailAddress,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                              bottom: _screen.height * 0.025,
+                            ),
+                            child: TextFormField(
+                              controller: _passwordController,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: const BorderSide(
+                                      color: Colors.transparent, width: 0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: const BorderSide(
+                                      color: Colors.transparent, width: 0),
+                                ),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 14),
+                                filled: true,
+                                fillColor: Theme.of(context)
+                                    .colorScheme
+                                    .inversePrimary,
+                                label: AutoSizeText('Password'),
+                              ),
                               keyboardType: TextInputType.text,
-                              obscureText: false,
-                              //obscuringCharacter: obscure == true ? obscuringCharacter! : ' ',
-                              //onChanged: (value) {},
+                              obscureText: true,
+                              obscuringCharacter: '*',
                             ),
                           ),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              _authService.signInWithEmailAndPassword(
+                                  _emailController.text,
+                                  _passwordController.text);
+
+                              // LoadingScreen.instance()
+                              // .show(context: context, text: 'Loading...');
+
+                              context.router.replaceNamed('/home_screen');
+                            },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(
                                 _screen.width,
@@ -88,21 +125,21 @@ class SignInScreen extends HookWidget {
                               ),
                             ),
                             child: const AutoSizeText(
-                              'Sign Up',
+                              'Sign In',
                               minFontSize: 20,
                             ),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const AutoSizeText('Already have an account?'),
+                              const AutoSizeText('Don\'t have an account?'),
                               TextButton(
                                 onPressed: () {
                                   context.router
-                                      .replaceNamed('/sign_in_screen');
+                                      .replaceNamed('/sign_up_screen');
                                 },
                                 child: const AutoSizeText(
-                                  'Log in here',
+                                  'Sign up here',
                                   style: TextStyle(
                                     decoration: TextDecoration.underline,
                                   ),

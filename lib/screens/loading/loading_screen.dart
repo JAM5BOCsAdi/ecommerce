@@ -1,24 +1,13 @@
 import 'package:ecommerce/utils/screen_util.dart';
 import 'package:flutter/material.dart';
 
-class LoadingScreen extends StatefulWidget {
+class LoadingScreen extends StatelessWidget {
   const LoadingScreen({super.key});
 
   @override
-  State<LoadingScreen> createState() => _LoadingScreenState();
-}
-
-class _LoadingScreenState extends State<LoadingScreen> {
-  final _screen = ScreenUtil.instance();
-
-  @override
-  void initState() {
-    Future.delayed(const Duration(seconds: 3));
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final _screen = ScreenUtil.instance();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.onPrimary,
