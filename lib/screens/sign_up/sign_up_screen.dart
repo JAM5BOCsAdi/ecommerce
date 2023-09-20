@@ -10,6 +10,7 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _screen = ScreenUtil.instance();
     // final emailController = useTextEditingController();
     // final passwordController = useTextEditingController();
 
@@ -18,14 +19,14 @@ class SignUpScreen extends StatelessWidget {
       child: Scaffold(
         body: Padding(
           padding: EdgeInsets.only(
-            top: screenHeight * 0.075,
-            left: screenWidth * 0.025,
-            right: screenWidth * 0.025,
+            top: _screen.height * 0.075,
+            left: _screen.width * 0.025,
+            right: _screen.width * 0.025,
           ),
           child: Container(
             color: Theme.of(context).colorScheme.onPrimary,
-            height: screenHeight,
-            width: screenWidth,
+            height: _screen.height,
+            width: _screen.width,
             child: Scrollbar(
               child: SingleChildScrollView(
                 // controller: scrollController,
@@ -35,15 +36,15 @@ class SignUpScreen extends StatelessWidget {
                   children: [
                     Padding(
                       padding: EdgeInsets.only(
-                        left: screenWidth * 0.025,
-                        right: screenWidth * 0.025,
+                        left: _screen.width * 0.025,
+                        right: _screen.width * 0.025,
                       ),
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           minimumSize: Size(
-                            screenWidth,
-                            screenHeight * 0.075,
+                            _screen.width,
+                            _screen.height * 0.075,
                           ),
                         ),
                         child: const AutoSizeText(

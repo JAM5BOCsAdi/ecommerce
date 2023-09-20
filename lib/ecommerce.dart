@@ -13,7 +13,7 @@ class Ecommerce extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    initScreenUtils(context);
+    ScreenUtil.instance().initScreenUtils(context);
 
     return MultiProvider(
       providers: [

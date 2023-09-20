@@ -12,6 +12,7 @@ class IntroScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _screen = ScreenUtil.instance();
     final _introKey = GlobalKey<IntroductionScreenState>();
     final _introProvider = Provider.of<IntroProvider>(context);
 
@@ -30,9 +31,9 @@ class IntroScreen extends StatelessWidget {
         imageAlignment: Alignment.center,
         bodyAlignment: Alignment.topCenter,
         imagePadding: EdgeInsets.only(
-          top: screenHeight * 0.05,
-          left: screenWidth * 0.025,
-          right: screenWidth * 0.025,
+          top: _screen.height * 0.05,
+          left: _screen.width * 0.025,
+          right: _screen.width * 0.025,
         ),
       );
     }
@@ -58,11 +59,11 @@ class IntroScreen extends StatelessWidget {
           },
           showSkipButton: true,
           dotsDecorator: DotsDecorator(
-            size: Size(screenWidth * 0.025, screenHeight * 0.015),
-            activeSize: Size(screenWidth * 0.055, screenHeight * 0.015),
+            size: Size(_screen.width * 0.025, _screen.height * 0.015),
+            activeSize: Size(_screen.width * 0.055, _screen.height * 0.015),
             activeShape: RoundedRectangleBorder(
               borderRadius:
-                  BorderRadius.all(Radius.circular(screenWidth * 0.025)),
+                  BorderRadius.all(Radius.circular(_screen.width * 0.025)),
             ),
           ),
           pages: [

@@ -9,6 +9,8 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+  final _screen = ScreenUtil.instance();
+
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3));
@@ -23,8 +25,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
       ),
       body: Container(
         color: Theme.of(context).colorScheme.onPrimary,
-        height: screenHeight,
-        width: screenWidth,
+        height: _screen.height,
+        width: _screen.width,
         child: const Center(
           child: CircularProgressIndicator(),
         ),
