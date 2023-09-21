@@ -8,16 +8,24 @@ class AppRouter extends $AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(
           initial: true,
-          path: '/introduction_screen',
-          page: IntroductionRoute.page,
+          path: '/wrapper_screen',
+          page: Wrapper.page,
         ),
         AutoRoute(
-          path: '/login_screen',
-          page: LoginRoute.page,
+          path: '/intro_screen',
+          page: IntroRoute.page,
         ),
         AutoRoute(
-          path: '/registration_screen',
-          page: RegistrationRoute.page,
+          path: '/sign_in_screen',
+          page: SignInRoute.page,
+        ),
+        AutoRoute(
+          path: '/sign_up_screen',
+          page: SignUpRoute.page,
+        ),
+        AutoRoute(
+          path: '/home_screen',
+          page: HomeRoute.page,
         ),
       ];
 }
