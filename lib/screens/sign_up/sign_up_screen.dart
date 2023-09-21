@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:ecommerce/screens/loading/loading_indicator.dart';
 // import 'package:ecommerce/screens/loading/loading_screen.dart';
 import 'package:ecommerce/services/auth_service.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ class SignUpScreen extends HookWidget {
     final _emailController = useTextEditingController();
     final _passwordController = useTextEditingController();
     final _authService = Provider.of<AuthService>(context, listen: false);
+    final _loading = LoadingIndicatorDialog.instance();
     // final scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
 
     return GestureDetector(
@@ -110,14 +112,16 @@ class SignUpScreen extends HookWidget {
                             ),
                           ),
                           ElevatedButton(
-                            onPressed: () {
+                            onPressed: () async {
                               _authService.createUserWithEmailAndPassword(
                                   _emailController.text,
                                   _passwordController.text);
                               // LoadingScreen.instance()
                               // .show(context: context, text: 'Loading...');
-
-                              context.router.replaceNamed('/sign_in_screen');
+                              _loading.show(context);
+                              await context.router
+                                  .replaceNamed('/sign_in_screen');
+                              _loading.dismiss();
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(
@@ -135,9 +139,12 @@ class SignUpScreen extends HookWidget {
                             children: [
                               const AutoSizeText('Already have an account?'),
                               TextButton(
-                                onPressed: () {
-                                  context.router
+                                onPressed: () async {
+                                  _loading.show(context);
+
+                                  await context.router
                                       .replaceNamed('/sign_in_screen');
+                                  _loading.dismiss();
                                 },
                                 child: const AutoSizeText(
                                   'Log in here',
