@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:ecommerce/screens/loading/loading_indicator.dart';
+import 'package:ecommerce/screens/loading/loading_screen_controller.dart';
 // import 'package:ecommerce/screens/loading/loading_screen.dart';
 import 'package:ecommerce/services/auth_service.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ class SignUpScreen extends HookWidget {
     final _emailController = useTextEditingController();
     final _passwordController = useTextEditingController();
     // final _authService = Provider.of<AuthService>(context, listen: false);
-    final _loading = LoadingIndicatorDialog.instance();
+    // final _loading = LoadingIndicatorDialog.instance();
     // final scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
 
     return GestureDetector(
@@ -118,10 +118,10 @@ class SignUpScreen extends HookWidget {
                               //     _passwordController.text);
                               // LoadingScreen.instance()
                               // .show(context: context, text: 'Loading...');
-                              _loading.show(context);
+                              // _loading.show(context);
                               await context.router
                                   .replaceNamed('/sign_in_screen');
-                              _loading.dismiss();
+                              // _loading.dismiss();
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(

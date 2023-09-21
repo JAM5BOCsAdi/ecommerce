@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:ecommerce/providers/intro_provider.dart';
-import 'package:ecommerce/screens/loading/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +14,7 @@ class IntroScreen extends StatelessWidget {
     final _screen = MediaQuery.of(context).size;
     final _introKey = GlobalKey<IntroductionScreenState>();
     final _introProvider = Provider.of<IntroProvider>(context);
-    final _loading = LoadingIndicatorDialog.instance();
+    // final _loading = LoadingIndicatorDialog.instance();
 
     Image _buildFullScreenImage(String path) {
       return Image.asset(
