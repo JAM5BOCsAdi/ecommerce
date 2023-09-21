@@ -1,7 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:ecommerce/screens/loading/loading_screen_controller.dart';
-// import 'package:ecommerce/screens/loading/loading_screen.dart';
-// import 'package:ecommerce/services/auth_service.dart';
+import 'package:ecommerce/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,8 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _screen = MediaQuery.of(context).size;
-    // final _authService = context.read<AuthService>();
-    // final _loading = LoadingIndicatorDialog.instance();
+    final _authService = context.read<AuthService>();
 
     return Scaffold(
       appBar: AppBar(),
@@ -32,13 +29,10 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Text('Home Screen'),
                 ElevatedButton(
-                    onPressed: () async {
-                      // _authService.signOut();
+                    onPressed: () {
+                      _authService.signOut();
 
-                      // _loading.show(context);
-
-                      await context.router.replaceNamed('/sign_in_screen');
-                      // _loading.dismiss();
+                      context.router.replaceNamed('/sign_in_screen');
                     },
                     child: Text('Sign Out')),
               ],

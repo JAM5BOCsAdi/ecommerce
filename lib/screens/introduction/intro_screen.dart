@@ -14,7 +14,6 @@ class IntroScreen extends StatelessWidget {
     final _screen = MediaQuery.of(context).size;
     final _introKey = GlobalKey<IntroductionScreenState>();
     final _introProvider = Provider.of<IntroProvider>(context);
-    // final _loading = LoadingIndicatorDialog.instance();
 
     Image _buildFullScreenImage(String path) {
       return Image.asset(
@@ -53,12 +52,10 @@ class IntroScreen extends StatelessWidget {
             _introKey.currentState?.skipToEnd();
           },
           done: const AutoSizeText('Done'),
-          onDone: () async {
+          onDone: () {
             _introProvider.prefs.setBool('isFresher', false);
 
-            // _loading.show(context);
-            await context.router.replaceNamed('/sign_in_screen');
-            // _loading.dismiss();
+            context.router.replaceNamed('/sign_in_screen');
           },
           showSkipButton: true,
           dotsDecorator: DotsDecorator(

@@ -1,7 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:ecommerce/screens/loading/loading_screen_controller.dart';
-// import 'package:ecommerce/screens/loading/loading_screen.dart';
 import 'package:ecommerce/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -16,8 +14,8 @@ class SignUpScreen extends HookWidget {
     final _screen = MediaQuery.of(context).size;
     final _emailController = useTextEditingController();
     final _passwordController = useTextEditingController();
-    // final _authService = Provider.of<AuthService>(context, listen: false);
-    // final _loading = LoadingIndicatorDialog.instance();
+    final _authService = Provider.of<AuthService>(context, listen: false);
+
     // final scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
 
     return GestureDetector(
@@ -75,9 +73,6 @@ class SignUpScreen extends HookWidget {
                                 label: AutoSizeText('Email'),
                               ),
                               keyboardType: TextInputType.emailAddress,
-                              // obscureText: false,
-                              //obscuringCharacter: obscure == true ? obscuringCharacter! : ' ',
-                              //onChanged: (value) {},
                             ),
                           ),
                           Padding(
@@ -103,25 +98,20 @@ class SignUpScreen extends HookWidget {
                                 fillColor: Theme.of(context)
                                     .colorScheme
                                     .inversePrimary,
-                                label: AutoSizeText('Password'),
+                                label: const AutoSizeText('Password'),
                               ),
                               keyboardType: TextInputType.text,
                               obscureText: true,
                               obscuringCharacter: '*',
-                              //onChanged: (value) {},
                             ),
                           ),
                           ElevatedButton(
-                            onPressed: () async {
-                              // _authService.createUserWithEmailAndPassword(
-                              //     _emailController.text,
-                              //     _passwordController.text);
-                              // LoadingScreen.instance()
-                              // .show(context: context, text: 'Loading...');
-                              // _loading.show(context);
-                              await context.router
-                                  .replaceNamed('/sign_in_screen');
-                              // _loading.dismiss();
+                            onPressed: () {
+                              _authService.createUserWithEmailAndPassword(
+                                  _emailController.text,
+                                  _passwordController.text);
+
+                              context.router.replaceNamed('/sign_in_screen');
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(
@@ -139,12 +129,9 @@ class SignUpScreen extends HookWidget {
                             children: [
                               const AutoSizeText('Already have an account?'),
                               TextButton(
-                                onPressed: () async {
-                                  // _loading.show(context);
-
-                                  await context.router
+                                onPressed: () {
+                                  context.router
                                       .replaceNamed('/sign_in_screen');
-                                  // _loading.dismiss();
                                 },
                                 child: const AutoSizeText(
                                   'Log in here',

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class LoadingScreen extends StatelessWidget {
-  const LoadingScreen({super.key});
+class LoadingScreen {
+  LoadingScreen._sharedInstance();
+  static final LoadingScreen _shared = LoadingScreen._sharedInstance();
+  factory LoadingScreen.instance() => _shared;
 
-  @override
-  Widget build(BuildContext context) {
+  Widget loadingScreen(BuildContext context) {
     final _screen = MediaQuery.of(context).size;
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.onPrimary,

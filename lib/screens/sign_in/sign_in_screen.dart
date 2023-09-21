@@ -1,8 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:ecommerce/screens/loading/loading.dart';
-import 'package:ecommerce/screens/loading/loading_indicator.dart';
-import 'package:ecommerce/screens/loading/loading_screen_controller.dart';
 import 'package:ecommerce/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -17,8 +14,8 @@ class SignInScreen extends HookWidget {
     final _screen = MediaQuery.of(context).size;
     final _emailController = useTextEditingController();
     final _passwordController = useTextEditingController();
-    // final _authService = context.read<AuthService>();
-    // final _loading = LoadingIndicatorDialog.instance();
+    final _authService = context.read<AuthService>();
+
     // final scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
 
     return GestureDetector(
@@ -73,7 +70,7 @@ class SignInScreen extends HookWidget {
                                 fillColor: Theme.of(context)
                                     .colorScheme
                                     .inversePrimary,
-                                label: AutoSizeText('Email'),
+                                label: const AutoSizeText('Email'),
                               ),
                               keyboardType: TextInputType.emailAddress,
                             ),
@@ -101,7 +98,7 @@ class SignInScreen extends HookWidget {
                                 fillColor: Theme.of(context)
                                     .colorScheme
                                     .inversePrimary,
-                                label: AutoSizeText('Password'),
+                                label: const AutoSizeText('Password'),
                               ),
                               keyboardType: TextInputType.text,
                               obscureText: true,
@@ -110,14 +107,12 @@ class SignInScreen extends HookWidget {
                           ),
                           ElevatedButton(
                             onPressed: () {
-                              // _authService.signInWithEmailAndPassword(
-                              //     _emailController.text,
-                              //     _passwordController.text);
+                              _authService.signInWithEmailAndPassword(
+                                  _emailController.text,
+                                  _passwordController.text);
 
-                              dialogShow(context);
                               AutoRouter.of(context)
                                   .replaceNamed('/home_screen');
-                              dialogDismiss(context);
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(
