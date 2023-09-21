@@ -15,7 +15,7 @@ class SignInScreen extends HookWidget {
     final _screen = MediaQuery.of(context).size;
     final _emailController = useTextEditingController();
     final _passwordController = useTextEditingController();
-    final _authService = context.read<AuthService>();
+    // final _authService = context.read<AuthService>();
     final _loading = LoadingIndicatorDialog.instance();
     // final scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
 
@@ -108,13 +108,13 @@ class SignInScreen extends HookWidget {
                           ),
                           ElevatedButton(
                             onPressed: () async {
-                              _authService.signInWithEmailAndPassword(
-                                  _emailController.text,
-                                  _passwordController.text);
+                              // _authService.signInWithEmailAndPassword(
+                              //     _emailController.text,
+                              //     _passwordController.text);
 
-                              _loading.show(context);
+                              // _loading.show(context);
                               await context.router.replaceNamed('/home_screen');
-                              _loading.dismiss();
+                              // _loading.dismiss();
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(
@@ -133,11 +133,11 @@ class SignInScreen extends HookWidget {
                               const AutoSizeText('Don\'t have an account?'),
                               TextButton(
                                 onPressed: () async {
-                                  _loading.show(context);
+                                  // _loading.show(context);
 
                                   await context.router
                                       .replaceNamed('/sign_up_screen');
-                                  _loading.dismiss();
+                                  // _loading.dismiss();
                                 },
                                 child: const AutoSizeText(
                                   'Sign up here',

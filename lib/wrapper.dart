@@ -16,10 +16,10 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _introProvider = Provider.of<IntroProvider>(context);
-    final _authService = Provider.of<AuthService>(context);
+    // final _authService = Provider.of<AuthService>(context);
 
-    return StreamBuilder(
-      stream: _authService.user,
+    return FutureBuilder(
+      future: Future.delayed(Duration(seconds: 3)), //_authService.user,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting ||
             snapshot.connectionState == ConnectionState.none) {
@@ -28,8 +28,8 @@ class Wrapper extends StatelessWidget {
           if (_introProvider.isFresher ?? false) {
             return const IntroScreen();
           } else {
-            final UserModel? user = snapshot.data;
-            return user == null ? const SignInScreen() : const HomeScreen();
+            // final UserModel? user = snapshot.data;
+            return SignInScreen(); //user == null ? const SignInScreen() : const HomeScreen();
           }
         }
       },

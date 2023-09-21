@@ -16,7 +16,7 @@ class SignUpScreen extends HookWidget {
     final _screen = MediaQuery.of(context).size;
     final _emailController = useTextEditingController();
     final _passwordController = useTextEditingController();
-    final _authService = Provider.of<AuthService>(context, listen: false);
+    // final _authService = Provider.of<AuthService>(context, listen: false);
     final _loading = LoadingIndicatorDialog.instance();
     // final scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
 
@@ -113,9 +113,9 @@ class SignUpScreen extends HookWidget {
                           ),
                           ElevatedButton(
                             onPressed: () async {
-                              _authService.createUserWithEmailAndPassword(
-                                  _emailController.text,
-                                  _passwordController.text);
+                              // _authService.createUserWithEmailAndPassword(
+                              //     _emailController.text,
+                              //     _passwordController.text);
                               // LoadingScreen.instance()
                               // .show(context: context, text: 'Loading...');
                               _loading.show(context);
@@ -140,11 +140,11 @@ class SignUpScreen extends HookWidget {
                               const AutoSizeText('Already have an account?'),
                               TextButton(
                                 onPressed: () async {
-                                  _loading.show(context);
+                                  // _loading.show(context);
 
                                   await context.router
                                       .replaceNamed('/sign_in_screen');
-                                  _loading.dismiss();
+                                  // _loading.dismiss();
                                 },
                                 child: const AutoSizeText(
                                   'Log in here',

@@ -10,8 +10,6 @@ class LoadingIndicatorDialog {
   late BuildContext _context;
   bool isDisplayed = false;
 
-  LoadingIndicatorDialog._internal();
-
   show(BuildContext context, {String text = 'Loading...'}) {
     if (isDisplayed) {
       return;

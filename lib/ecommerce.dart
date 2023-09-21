@@ -14,9 +14,9 @@ class Ecommerce extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<AuthService>(
-          create: (_) => AuthService(),
-        ),
+        // Provider<AuthService>(
+        //   create: (_) => AuthService(),
+        // ),
         ChangeNotifierProvider(
           create: (_) => IntroProvider(),
         ),

@@ -57,9 +57,9 @@ class IntroScreen extends StatelessWidget {
           onDone: () async {
             _introProvider.prefs.setBool('isFresher', false);
 
-            _loading.show(context);
-            await context.router.pushNamed('/sign_in_screen');
-            _loading.dismiss();
+            // _loading.show(context);
+            await context.router.replaceNamed('/sign_in_screen');
+            // _loading.dismiss();
           },
           showSkipButton: true,
           dotsDecorator: DotsDecorator(
