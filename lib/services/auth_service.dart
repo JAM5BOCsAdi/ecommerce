@@ -1,9 +1,10 @@
+import 'package:ecommerce/constants/constants.dart';
 import 'package:ecommerce/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logger/logger.dart';
 
 class AuthService {
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final _firebaseAuth = FirebaseAuth.instance;
   final logger = Logger();
 
   UserModel? _userFromFirebase(User? user) {
@@ -16,7 +17,10 @@ class AuthService {
           email: user.email,
         );
       } catch (e) {
-        logger.e('!!Error: Returning UserModel!!');
+        logger.e(
+          userFromFirebaseError,
+          error: e.toString(),
+        );
       }
     }
     return null;
@@ -26,7 +30,10 @@ class AuthService {
     try {
       return _firebaseAuth.authStateChanges().map(_userFromFirebase);
     } catch (e) {
-      logger.e('!!Error: Get user auth state changes!!');
+      logger.e(
+        getUserError,
+        error: e.toString(),
+      );
     }
     return null;
   }
@@ -42,7 +49,10 @@ class AuthService {
       );
       return _userFromFirebase(credential.user);
     } catch (e) {
-      logger.e('!!Error: Sign in with email and Password!!');
+      logger.e(
+        signInWithEmailAndPasswordError,
+        error: e.toString(),
+      );
     }
     return null;
   }
@@ -62,7 +72,10 @@ class AuthService {
         return null;
       }
     } catch (e) {
-      logger.e('!!Error: Creating User with Email and Password!!');
+      logger.e(
+        createUserWithEmailAndPasswordError,
+        error: e.toString(),
+      );
     }
     return null;
   }
@@ -71,7 +84,10 @@ class AuthService {
     try {
       await _firebaseAuth.signOut();
     } catch (e) {
-      logger.e('!!Error: Sign out user!!');
+      logger.e(
+        signOutError,
+        error: e.toString(),
+      );
     }
   }
 }

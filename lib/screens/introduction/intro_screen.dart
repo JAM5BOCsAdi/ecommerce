@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:ecommerce/constants/constants.dart';
 import 'package:ecommerce/providers/intro_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -47,15 +48,15 @@ class IntroScreen extends StatelessWidget {
           initialPage: 0,
           next: const Icon(Icons.arrow_forward),
           isProgress: true,
-          skip: const AutoSizeText('Skip'),
+          skip: const AutoSizeText(skip),
           onSkip: () {
             _introKey.currentState?.skipToEnd();
           },
-          done: const AutoSizeText('Done'),
+          done: const AutoSizeText(done),
           onDone: () {
             _introProvider.prefs.setBool('isFresher', false);
 
-            context.router.replaceNamed('/sign_in_screen');
+            context.router.replaceNamed(signInScreen);
           },
           showSkipButton: true,
           dotsDecorator: DotsDecorator(
@@ -68,21 +69,21 @@ class IntroScreen extends StatelessWidget {
           ),
           pages: [
             PageViewModel(
-              title: 'Online Shopping?',
-              body: 'Make it easy for everyone',
-              image: _buildFullScreenImage('assets/images/intro_img1.png'),
+              title: PVMT1,
+              body: PVMB1,
+              image: _buildFullScreenImage(introImg1),
               decoration: _pageDecoration(),
             ),
             PageViewModel(
-              title: 'Sales?',
-              body: 'Lots of price falls',
-              image: _buildFullScreenImage('assets/images/intro_img2.png'),
+              title: PVMT2,
+              body: PVMB2,
+              image: _buildFullScreenImage(introImg2),
               decoration: _pageDecoration(),
             ),
             PageViewModel(
-              title: 'New Arrivals?',
-              body: 'Full of new products',
-              image: _buildFullScreenImage('assets/images/intro_img3.png'),
+              title: PVMT3,
+              body: PVMB3,
+              image: _buildFullScreenImage(introImg3),
               decoration: _pageDecoration(),
             ),
           ],

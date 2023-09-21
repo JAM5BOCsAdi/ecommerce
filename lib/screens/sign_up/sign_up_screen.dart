@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:ecommerce/constants/constants.dart';
 import 'package:ecommerce/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -70,7 +71,7 @@ class SignUpScreen extends HookWidget {
                                 fillColor: Theme.of(context)
                                     .colorScheme
                                     .inversePrimary,
-                                label: AutoSizeText('Email'),
+                                label: const AutoSizeText(emailLabel),
                               ),
                               keyboardType: TextInputType.emailAddress,
                             ),
@@ -98,11 +99,11 @@ class SignUpScreen extends HookWidget {
                                 fillColor: Theme.of(context)
                                     .colorScheme
                                     .inversePrimary,
-                                label: const AutoSizeText('Password'),
+                                label: const AutoSizeText(passwordLabel),
                               ),
                               keyboardType: TextInputType.text,
                               obscureText: true,
-                              obscuringCharacter: '*',
+                              obscuringCharacter: obsChar,
                             ),
                           ),
                           ElevatedButton(
@@ -111,7 +112,7 @@ class SignUpScreen extends HookWidget {
                                   email: _emailController.text,
                                   password: _passwordController.text);
 
-                              context.router.replaceNamed('/sign_in_screen');
+                              context.router.replaceNamed(signInScreen);
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(
@@ -120,21 +121,20 @@ class SignUpScreen extends HookWidget {
                               ),
                             ),
                             child: const AutoSizeText(
-                              'Sign Up',
+                              signUp,
                               minFontSize: 20,
                             ),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const AutoSizeText('Already have an account?'),
+                              const AutoSizeText(AHA),
                               TextButton(
                                 onPressed: () {
-                                  context.router
-                                      .replaceNamed('/sign_in_screen');
+                                  context.router.replaceNamed(signInScreen);
                                 },
                                 child: const AutoSizeText(
-                                  'Log in here',
+                                  signInHere,
                                   style: TextStyle(
                                     decoration: TextDecoration.underline,
                                   ),
