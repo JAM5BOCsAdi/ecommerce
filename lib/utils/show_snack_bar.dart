@@ -8,6 +8,6 @@ GetSnackBar showSnackBar({
     title: title,
     message: errorMessage,
     duration: const Duration(seconds: 3),
-    snackPosition: SnackPosition.BOTTOM,
+    snackPosition: SnackPosition.TOP,
   );
 }

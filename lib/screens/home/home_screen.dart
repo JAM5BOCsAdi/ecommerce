@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:ecommerce/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,14 +28,14 @@ class HomeScreen extends StatelessWidget {
             height: _screen.height,
             child: Column(
               children: [
-                Text('Home Screen'),
+                const AutoSizeText('Home Screen'),
                 ElevatedButton(
                     onPressed: () {
                       _authService.signOut();
 
                       context.router.replaceNamed('/sign_in_screen');
                     },
-                    child: Text('Sign Out')),
+                    child: const AutoSizeText('Sign Out')),
               ],
             ),
           ),

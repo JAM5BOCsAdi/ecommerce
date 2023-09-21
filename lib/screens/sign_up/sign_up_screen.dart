@@ -108,8 +108,8 @@ class SignUpScreen extends HookWidget {
                           ElevatedButton(
                             onPressed: () {
                               _authService.createUserWithEmailAndPassword(
-                                  _emailController.text,
-                                  _passwordController.text);
+                                  email: _emailController.text,
+                                  password: _passwordController.text);
 
                               context.router.replaceNamed('/sign_in_screen');
                             },

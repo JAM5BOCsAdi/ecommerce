@@ -108,8 +108,8 @@ class SignInScreen extends HookWidget {
                           ElevatedButton(
                             onPressed: () {
                               _authService.signInWithEmailAndPassword(
-                                  _emailController.text,
-                                  _passwordController.text);
+                                  email: _emailController.text,
+                                  password: _passwordController.text);
 
                               AutoRouter.of(context)
                                   .replaceNamed('/home_screen');
