@@ -1,0 +1,68 @@
+Variant: debug
+Config: debug
+Store: C:\Users\Adam\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: B8:C9:1A:FD:85:77:65:15:84:78:1D:CE:48:FD:22:BE
+SHA1: F3:81:16:BC:9D:75:AD:03:FC:09:FF:E6:97:12:5A:90:2C:BC:59:57
+SHA-256: 73:83:59:28:C4:19:D4:DE:20:17:4C:8A:10:BD:4D:06:44:BA:71:55:83:1C:13:33:91:73:89:9C:15:3C:04:BF
+Valid until: Tuesday, 16 April 2052
+----------
+Variant: release
+Config: debug
+Store: C:\Users\Adam\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: B8:C9:1A:FD:85:77:65:15:84:78:1D:CE:48:FD:22:BE
+SHA1: F3:81:16:BC:9D:75:AD:03:FC:09:FF:E6:97:12:5A:90:2C:BC:59:57
+SHA-256: 73:83:59:28:C4:19:D4:DE:20:17:4C:8A:10:BD:4D:06:44:BA:71:55:83:1C:13:33:91:73:89:9C:15:3C:04:BF
+Valid until: Tuesday, 16 April 2052
+----------
+Variant: profile
+Config: debug
+Store: C:\Users\Adam\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: B8:C9:1A:FD:85:77:65:15:84:78:1D:CE:48:FD:22:BE
+SHA1: F3:81:16:BC:9D:75:AD:03:FC:09:FF:E6:97:12:5A:90:2C:BC:59:57
+SHA-256: 73:83:59:28:C4:19:D4:DE:20:17:4C:8A:10:BD:4D:06:44:BA:71:55:83:1C:13:33:91:73:89:9C:15:3C:04:BF
+Valid until: Tuesday, 16 April 2052
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\Adam\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: B8:C9:1A:FD:85:77:65:15:84:78:1D:CE:48:FD:22:BE
+SHA1: F3:81:16:BC:9D:75:AD:03:FC:09:FF:E6:97:12:5A:90:2C:BC:59:57
+SHA-256: 73:83:59:28:C4:19:D4:DE:20:17:4C:8A:10:BD:4D:06:44:BA:71:55:83:1C:13:33:91:73:89:9C:15:3C:04:BF
+Valid until: Tuesday, 16 April 2052
+----------
+
+> Task :connectivity_plus:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\Adam\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: B8:C9:1A:FD:85:77:65:15:84:78:1D:CE:48:FD:22:BE
+SHA1: F3:81:16:BC:9D:75:AD:03:FC:09:FF:E6:97:12:5A:90:2C:BC:59:57
+SHA-256: 73:83:59:28:C4:19:D4:DE:20:17:4C:8A:10:BD:4D:06:44:BA:71:55:83:1C:13:33:91:73:89:9C:15:3C:04:BF
+Valid until: Tuesday, 16 April 2052
+----------
+
+> Task :flutter_keyboard_visibility:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\Adam\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: B8:C9:1A:FD:85:77:65:15:84:78:1D:CE:48:FD:22:BE
+SHA1: F3:81:16:BC:9D:75:AD:03:FC:09:FF:E6:97:12:5A:90:2C:BC:59:57
+SHA-256: 73:83:59:28:C4:19:D4:DE:20:17:4C:8A:10:BD:4D:06:44:BA:71:55:83:1C:13:33:91:73:89:9C:15:3C:04:BF
+Valid until: Tuesday, 16 April 2052
+----------
+
+> Task :shared_preferences_android:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\Adam\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: B8:C9:1A:FD:85:77:65:15:84:78:1D:CE:48:FD:22:BE
+SHA1: F3:81:16:BC:9D:75:AD:03:FC:09:FF:E6:97:12:5A:90:2C:BC:59:57
+SHA-256: 73:83:59:28:C4:19:D4:DE:20:17:4C:8A:10:BD:4D:06:44:BA:71:55:83:1C:13:33:91:73:89:9C:15:3C:04:BF
+Valid until: Tuesday, 16 April 2052
