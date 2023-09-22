@@ -20,9 +20,6 @@ class Ecommerce extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => IntroProvider(),
         ),
-        // ChangeNotifierProvider(
-        //   create: (_) => ScrollProvider(),
-        // ),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

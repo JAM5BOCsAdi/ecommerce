@@ -4,6 +4,7 @@ import 'package:ecommerce/constants/constants.dart';
 import 'package:ecommerce/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 @RoutePage()
@@ -16,8 +17,6 @@ class SignUpScreen extends HookWidget {
     final _emailController = useTextEditingController();
     final _passwordController = useTextEditingController();
     final _authService = Provider.of<AuthService>(context, listen: false);
-
-    // final scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
@@ -37,17 +36,18 @@ class SignUpScreen extends HookWidget {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: SingleChildScrollView(
+                    reverse: true,
                     physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.vertical,
                     child: Padding(
                       padding: EdgeInsets.only(bottom: _screen.height * 0.025),
                       child: Column(
                         children: [
-                          // SvgPicture.asset(
-                          //   'assets/images/sign_in.svg',
-                          //  height: _screen.height * 0.5,
-                          // width: _screen.width * 0.5,
-                          //),
+                          SvgPicture.asset(
+                            'assets/images/sign_in.svg',
+                            height: _screen.height * 0.5,
+                            width: _screen.width * 0.5,
+                          ),
                           Padding(
                             padding: EdgeInsets.only(
                               bottom: _screen.height * 0.025,
